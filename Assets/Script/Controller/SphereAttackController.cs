@@ -2,20 +2,26 @@ using UnityEngine;
 
 public class SphereAttackController
 {
-    SphereAttackModel sphereAttackModel;
+    readonly SphereAttackModel model;
 
     public SphereAttackController(SphereAttackModel sphereAttackModel)
     {
-        this.sphereAttackModel = sphereAttackModel;
+        model = sphereAttackModel;
     }
 
     public void OnDrag(Vector3 start, Vector3 current)
     {
+        model.IsDragged = true;
+
+        /*
+         * Calculate the initial velocity and modify model.initialVelocity value
+         */
+
         Debug.Log(start + " " + current);
     }
 
     public void OnDragExit()
     {
-        Debug.Log("Exit");
+        model.IsDragged = false;
     }
 }

@@ -5,6 +5,22 @@ public class SphereAttackModel
 {
     public UnityAction<bool> IsDraggedChanged;
 
+    public const float SPEED = 5.0f;
+
     public Vector2 initialVelocity = Vector2.zero;
-    public bool isDragged = false;
+    bool isDragged = false;
+
+    public bool IsDragged
+    {
+        get
+        {
+            return isDragged;
+        }
+
+        set
+        {
+            isDragged = value;
+            IsDraggedChanged.Invoke(isDragged);
+        }
+    }
 }

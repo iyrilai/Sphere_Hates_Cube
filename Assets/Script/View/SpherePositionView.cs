@@ -2,7 +2,22 @@
 
 public class SpherePositionView : MonoBehaviour
 {
-    public SpherePositionModel SpherePositionModel { private get; set; }
+    SpherePositionModel model;
 
+    private void Start()
+    {
+        model = new SpherePositionModel();
+        
+        var controller = GetComponent<SpherePositionController>();
+        controller.Model = model;
+        controller.Init();
+
+        model.OnTransformUpdate += OnTransformUpdate;
+    }
+
+    void OnTransformUpdate(Vector3 position)
+    {
+        transform.position = position;
+    }
 }
 

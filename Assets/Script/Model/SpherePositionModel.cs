@@ -10,7 +10,21 @@ public class SpherePositionModel
     public int queuePosition = 1;
 
     public Vector3 homeTransformPosition;
-    public Vector3 updateTransformPosition;
+    Vector3 updateTransformPosition;
 
     public bool isActive = false;
+
+    public Vector3 UpdateTransformPosition
+    {
+        get
+        {
+            return updateTransformPosition;
+        }
+
+        set
+        {
+            updateTransformPosition = value;
+            OnTransformUpdate.Invoke(updateTransformPosition);
+        }
+    }
 }
