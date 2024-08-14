@@ -447,7 +447,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113900964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.2, y: 3.67, z: 5.12}
+  m_LocalPosition: {x: -10, y: 4.5, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -565,34 +565,6 @@ PrefabInstance:
     - target: {fileID: 4427198015813330, guid: 7a84762656a300e40b7f661a09c36e7f, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427198015813330, guid: 7a84762656a300e40b7f661a09c36e7f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427198015813330, guid: 7a84762656a300e40b7f661a09c36e7f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427198015813330, guid: 7a84762656a300e40b7f661a09c36e7f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427198015813330, guid: 7a84762656a300e40b7f661a09c36e7f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427198015813330, guid: 7a84762656a300e40b7f661a09c36e7f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427198015813330, guid: 7a84762656a300e40b7f661a09c36e7f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427198015813330, guid: 7a84762656a300e40b7f661a09c36e7f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4427198015813330, guid: 7a84762656a300e40b7f661a09c36e7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -716,7 +688,7 @@ GameObject:
   - component: {fileID: 2126438071}
   - component: {fileID: 2126438070}
   m_Layer: 0
-  m_Name: 2D Camera
+  m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

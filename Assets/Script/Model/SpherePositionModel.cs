@@ -7,8 +7,6 @@ public class SpherePositionModel
 
     public const float MAX_DRAG_RADIUS = 2.0f;
 
-    public int queuePosition = 1;
-
     public Vector3 homeTransformPosition;
     Vector3 updateTransformPosition;
 

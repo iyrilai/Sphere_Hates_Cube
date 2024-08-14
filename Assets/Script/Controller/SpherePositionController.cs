@@ -30,19 +30,12 @@ public class SpherePositionController : MonoBehaviour
 #endif
     }
 
-    public void UpdateQueuePosition(int queuePos, Vector3 position)
+    public void UpdateQueuePosition(bool isActive, Vector3 position)
     {
-        if (queuePos == 0)
-            SetActive();
+        Model.isActive = isActive;
 
-        Model.queuePosition = queuePos;
         Model.UpdateTransformPosition = position;
         Model.homeTransformPosition = position;
-    }
-
-    void SetActive()
-    {
-        Model.isActive = true;
     }
 
     private void OnMouseUp()
@@ -64,12 +57,14 @@ public class SpherePositionController : MonoBehaviour
     void OnDrag()
     {
         Camera cam = Camera.main; //Change to Camera refeneces to improve performance
-        Vector3 mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
-             Model.UpdateTransformPosition.z - cam.transform.position.z));
-        float distance = Vector3.Distance(Model.homeTransformPosition, mousePos);
 
-        Vector3 maxPos = mousePos;
+        var mousePos = Input.mousePosition;
+        mousePos.z = Model.UpdateTransformPosition.z - cam.transform.position.z;
+        mousePos = cam.ScreenToWorldPoint(mousePos);
 
+        var distance = Vector3.Distance(Model.homeTransformPosition, mousePos);
+
+        var maxPos = mousePos;
         if (distance > SpherePositionModel.MAX_DRAG_RADIUS)
         {
             Vector3 difference = mousePos - Model.homeTransformPosition;
