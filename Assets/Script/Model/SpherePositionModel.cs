@@ -5,7 +5,7 @@ public class SpherePositionModel
 {
     public UnityAction<Vector3> OnTransformUpdate;
 
-    public const float MAX_DRAG_RADIUS = 4.0f;
+    public const float MAX_DRAG_RADIUS = 2.0f;
 
     public int queuePosition = 1;
 

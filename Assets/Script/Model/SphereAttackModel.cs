@@ -5,7 +5,7 @@ public class SphereAttackModel
 {
     public UnityAction<bool> IsDraggedChanged;
 
-    public const float SPEED = 5.0f;
+    public const float SPEED = 9.0f;
 
     public Vector2 initialVelocity = Vector2.zero;
     bool isDragged = false;

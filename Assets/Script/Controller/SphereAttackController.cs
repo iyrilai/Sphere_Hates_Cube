@@ -9,15 +9,17 @@ public class SphereAttackController
         model = sphereAttackModel;
     }
 
-    public void OnDrag(Vector3 start, Vector3 current)
+    public void OnDrag(Vector3 home, Vector3 current)
     {
         model.IsDragged = true;
 
+        Vector3 difference = home - current;
+        model.initialVelocity = difference * SphereAttackModel.SPEED;
         /*
          * Calculate the initial velocity and modify model.initialVelocity value
          */
 
-        Debug.Log(start + " " + current);
+        Debug.Log(home + " " + current);
     }
 
     public void OnDragExit()

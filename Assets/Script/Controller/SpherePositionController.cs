@@ -6,14 +6,20 @@ public class SpherePositionController : MonoBehaviour
     public SpherePositionModel Model { private get; set; }
     SphereAttackController attackController;
 
+    SphereAttackController AttackController
+    {
+        get
+        {
+            if (attackController == null)
+                attackController = GetComponent<SphereAttackView>().Controller;
+
+            return attackController;
+        }
+    }
+
 #if UNITY_EDITOR
     [SerializeField] bool setActive;
 #endif
-
-    private void Start()
-    {
-        attackController = GetComponent<SphereAttackView>().Controller;
-    }
 
     public void Init()
     {
@@ -57,7 +63,7 @@ public class SpherePositionController : MonoBehaviour
 
     void OnDrag()
     {
-        Camera cam = Camera.main;
+        Camera cam = Camera.main; //Change to Camera refeneces to improve performance
         Vector3 mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
              Model.UpdateTransformPosition.z - cam.transform.position.z));
         float distance = Vector3.Distance(Model.homeTransformPosition, mousePos);
@@ -70,8 +76,9 @@ public class SpherePositionController : MonoBehaviour
             maxPos = Model.homeTransformPosition + difference.normalized * SpherePositionModel.MAX_DRAG_RADIUS;
         }
 
+        maxPos.z = Model.homeTransformPosition.z;
         Model.UpdateTransformPosition = maxPos;
-        attackController.OnDrag(Model.homeTransformPosition, Model.UpdateTransformPosition);
+        AttackController.OnDrag(Model.homeTransformPosition, Model.UpdateTransformPosition);
     }
 
     public void OnDragExit()
@@ -84,6 +91,6 @@ public class SpherePositionController : MonoBehaviour
             return;
         }
 
-        attackController.OnDragExit();
+        AttackController.OnDragExit();
     }
 }
