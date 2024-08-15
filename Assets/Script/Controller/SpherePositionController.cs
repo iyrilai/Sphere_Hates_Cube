@@ -18,20 +18,10 @@ public class SpherePositionController : MonoBehaviour
         }
     }
 
-    // for debugging
-#if UNITY_EDITOR
-    [SerializeField] bool setActive;
-#endif
-
     public void Init()
     {
         Model.homeTransformPosition = transform.position;
         mainCamera = Camera.main;
-
-        // for debugging
-#if UNITY_EDITOR
-        Model.isActive = setActive;
-#endif
     }
 
     public void UpdateQueuePosition(bool isActive, Vector3 position)
