@@ -15,11 +15,6 @@ public class SphereAttackController
 
         Vector3 difference = home - current;
         model.initialVelocity = difference * SphereAttackModel.SPEED;
-        /*
-         * Calculate the initial velocity and modify model.initialVelocity value
-         */
-
-        Debug.Log(home + " " + current);
     }
 
     public void OnDragExit()

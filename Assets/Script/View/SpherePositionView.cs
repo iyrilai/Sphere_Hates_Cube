@@ -4,7 +4,7 @@ public class SpherePositionView : MonoBehaviour
 {
     SpherePositionModel model;
 
-    private void Start()
+    private void Awake()
     {
         model = new SpherePositionModel();
         

@@ -7,7 +7,7 @@ public class SphereAttackView : MonoBehaviour
     
     public SphereAttackController Controller { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         model = new();
         Controller = new(model);
@@ -25,6 +25,6 @@ public class SphereAttackView : MonoBehaviour
         rb.velocity = model.initialVelocity;
         rb.useGravity = true;
 
-        Debug.Log($"Sphere is to be set {model.initialVelocity} as initial velocity");
+        Debug.Log($"The sphere's initial velocity is set to {model.initialVelocity}.");
     }
 }
