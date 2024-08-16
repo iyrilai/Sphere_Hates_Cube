@@ -9,12 +9,10 @@ public class SphereAttackController
         model = sphereAttackModel;
     }
 
-    public void OnDrag(Vector3 home, Vector3 current)
+    public void OnDrag(Vector3 direction)
     {
         model.IsDragged = true;
-
-        Vector3 difference = home - current;
-        model.initialVelocity = difference * SphereAttackModel.SPEED;
+        model.initialVelocity = direction * SphereAttackModel.SPEED;
     }
 
     public void OnDragExit()

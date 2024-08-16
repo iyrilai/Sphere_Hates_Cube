@@ -1,10 +1,11 @@
 using UnityEngine;
 
-
+[RequireComponent(typeof(SpherePositionView), typeof(SphereAttackView), typeof(SphereLifeController))]
 public class SpherePositionController : MonoBehaviour
 {
     public SpherePositionModel Model { private get; set; }
     SphereAttackController attackController;
+    SphereLifeController lifeController;
     Camera mainCamera;
 
     SphereAttackController AttackController
@@ -22,14 +23,18 @@ public class SpherePositionController : MonoBehaviour
     {
         Model.homeTransformPosition = transform.position;
         mainCamera = Camera.main;
+        lifeController = GetComponent<SphereLifeController>();
     }
 
-    public void UpdateQueuePosition(bool isActive, Vector3 position)
+    public void UpdatePosition(bool isActive, Vector3 position)
     {
         Model.isActive = isActive;
 
         Model.UpdateTransformPosition = position;
         Model.homeTransformPosition = position;
+
+        if(Model.isActive)
+            GetComponent<Collider>().enabled = true;
     }
 
     private void OnMouseUp()
@@ -74,7 +79,7 @@ public class SpherePositionController : MonoBehaviour
             return;
 
         Model.UpdateTransformPosition = maxPos;
-        AttackController.OnDrag(Model.homeTransformPosition, Model.UpdateTransformPosition);
+        AttackController.OnDrag(Model.homeTransformPosition - maxPos);
     }
 
     public void OnDragExit()
@@ -90,5 +95,6 @@ public class SpherePositionController : MonoBehaviour
         Model.isActive = false;
         SphereManager.Instance.RemoveSphere();
         AttackController.OnDragExit();
+        lifeController.IsUsed();
     }
 }

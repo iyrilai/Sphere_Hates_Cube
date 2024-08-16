@@ -6,12 +6,11 @@ public class SphereManager : MonoBehaviour
 {
     [SerializeField] GameObject spherePrefabs;
 
-    WaitForSeconds waitFor3Sec = new(3);
-
+    readonly WaitForSeconds waitFor2Sec = new(2);
     readonly List<SpherePositionController> spherePositions = new();
 
-
     public static SphereManager Instance { get; private set; }
+
 
     private void Awake()
     {
@@ -30,7 +29,7 @@ public class SphereManager : MonoBehaviour
             var child = transform.GetChild(i);
             var controller = Instantiate(spherePrefabs, child).GetComponent<SpherePositionController>();
             
-            controller.UpdateQueuePosition(i == 0, child.position);
+            controller.UpdatePosition(i == 0, child.position);
             spherePositions.Add(controller);
         }
     }
@@ -43,7 +42,7 @@ public class SphereManager : MonoBehaviour
 
     IEnumerator RemoveSphereCoroutines()
     {
-        yield return waitFor3Sec;
+        yield return waitFor2Sec;
         
         if (spherePositions.Count <= 0)
             yield break;
@@ -52,11 +51,11 @@ public class SphereManager : MonoBehaviour
         attackingSphere.transform.parent = null;
         spherePositions.RemoveAt(0);
 
-        RearangeSphere();
+        RearrangeSphere();
     }
     
 
-    void RearangeSphere()
+    void RearrangeSphere()
     {
         for (int i = 0; i < spherePositions.Count; i++)
         {
@@ -64,7 +63,7 @@ public class SphereManager : MonoBehaviour
             var controller = spherePositions[i];
 
             controller.transform.parent = child;
-            controller.UpdateQueuePosition(i == 0, child.position);
+            controller.UpdatePosition(i == 0, child.position);
         }
     }
 }

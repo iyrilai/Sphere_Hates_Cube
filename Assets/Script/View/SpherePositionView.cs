@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(SpherePositionController))]
 public class SpherePositionView : MonoBehaviour
 {
     SpherePositionModel model;
