@@ -14,7 +14,6 @@ public class CubeLifeController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"{gameObject.name} to {collision.gameObject.name} - {collision.relativeVelocity.magnitude}");
         SetDamage(collision.relativeVelocity.magnitude);
     }
 

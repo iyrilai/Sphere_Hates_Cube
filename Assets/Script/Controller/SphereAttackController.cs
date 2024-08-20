@@ -12,11 +12,16 @@ public class SphereAttackController
     public void OnDrag(Vector3 direction)
     {
         model.IsDragged = true;
-        model.initialVelocity = direction * SphereAttackModel.SPEED;
+        SetInitialVelocity(direction* SphereAttackModel.SPEED);
     }
 
     public void OnDragExit()
     {
         model.IsDragged = false;
+    }
+
+    public void SetInitialVelocity(Vector2 initialVelocity)
+    {
+        model.InitialVelocity = initialVelocity;
     }
 }

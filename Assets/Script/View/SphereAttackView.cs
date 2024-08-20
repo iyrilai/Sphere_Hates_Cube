@@ -23,9 +23,9 @@ public class SphereAttackView : MonoBehaviour
         if (isDragged)
             return;
 
-        rb.velocity = model.initialVelocity;
+        rb.velocity = model.InitialVelocity;
         rb.useGravity = true;
 
-        Debug.Log($"The sphere's initial velocity is set to {model.initialVelocity}.");
+        Debug.Log($"The sphere's initial velocity is set to {model.InitialVelocity}.");
     }
 }
