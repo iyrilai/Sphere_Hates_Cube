@@ -1,9 +1,16 @@
 using UnityEngine;
 
-[RequireComponent (typeof(CubeLifeView))]
+[RequireComponent(typeof(CubeLifeView))]
 public class CubeLifeController : MonoBehaviour
 {
     public CubeLifeModel Model { private get; set; }
+
+
+    private void Update()
+    {
+        if (transform.position.z > Model.maxZPos || transform.position.z < Model.minZPos)
+            Kill();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

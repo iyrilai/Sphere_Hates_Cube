@@ -7,6 +7,9 @@ public class CubeLifeModel
     public float health = 4;
     bool isAlive = true;
 
+    public float maxZPos;
+    public float minZPos;
+
     public bool IsAlive
     {
         get

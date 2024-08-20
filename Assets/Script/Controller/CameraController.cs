@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class CameraController
 {
-    public void SetFollow()
+    public void StartFollow()
+    {
+        
+    }
+
+    public void StopFollow()
     {
 
     }
